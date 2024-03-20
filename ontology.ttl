@@ -76,14 +76,6 @@ earl:subject rdf:type owl:ObjectProperty .
 #    Classes
 #################################################################
 
-###  http://purl.org/ontology/bibo/Report
-bibo:Report rdf:type owl:Class .
-
-
-###  http://rdfs.org/ns/void#Dataset
-void:Dataset rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/EthicsReport
 :EthicsReport rdf:type owl:Class ;
               rdfs:subClassOf bibo:Report ;
