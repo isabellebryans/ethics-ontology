@@ -49,9 +49,6 @@
              rdfs:comment "Whether or not the ontology is open and can be downloaded." .
 
 
-###  http://www.w3.org/ns/earl#subject
-earl:subject rdf:type owl:ObjectProperty .
-
 
 #################################################################
 #    Data properties
