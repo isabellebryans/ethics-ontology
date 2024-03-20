@@ -1,4 +1,4 @@
-@prefix : <http://purl.org/net/ethics-assessment/ontology/> .
+@prefix : <http://purl.org/ethics-assessment/ontology/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,9 +8,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcterms: <http://purl.org/dc/terms/>.
-@base <http://purl.org/net/ethics-assessment/ontology/> .
+@base <http://purl.org/ethics-assessment/ontology/> .
 
-<http://www.purl.org/net/ethics-assessment/ontology> rdf:type owl:Ontology ;
+<http://www.purl.org/ethics-assessment/ontology> rdf:type owl:Ontology ;
                                                                         dcterms:contributor "Isabelle Bryans" ;
                                                                         dcterms:created "2024-03-16T09:00:00"^^xsd:dateTime ;
                                                                         rdfs:label "Ontology describing the results of an ethical assessment on a LOD dataset."@en .
@@ -19,7 +19,7 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/net/ethics-assessment/ontology/hasEthicsTestResult
+###  http://purl.org/ethics-assessment/ontology/hasEthicsTestResult
 :hasEthicsTestResult rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :hasTestResult ;
                      rdfs:domain earl:TestSubject ;
@@ -27,14 +27,14 @@
                      rdfs:comment "Dataset or Ontology has Ethics Test Result." .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/hasNamespace
+###  http://purl.org/ethics-assessment/ontology/hasNamespace
 :hasNamespace rdf:type owl:ObjectProperty ;
               rdfs:domain void:Dataset ;
               rdfs:range :Namespace ;
               rdfs:comment "Namespace in dataset" .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/hasTestResult
+###  http://purl.org/ethics-assessment/ontology/hasTestResult
 :hasTestResult rdf:type owl:ObjectProperty ;
                owl:inverseOf earl:subject ;
                rdfs:domain earl:TestSubject ;
@@ -42,7 +42,7 @@
                rdfs:comment "Test Subject has Assertion." .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/isAvailable
+###  http://purl.org/ethics-assessment/ontology/isAvailable
 :isAvailable rdf:type owl:ObjectProperty ;
              rdfs:domain :Namespace ;
              rdfs:range :TruthValue ;
@@ -57,13 +57,13 @@ earl:subject rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-###  http://purl.org/net/ethics-assessment/ontology/FAIRscore
+###  http://purl.org/ethics-assessment/ontology/FAIRscore
 :FAIRscore rdf:type owl:DatatypeProperty ;
            rdfs:domain :Namespace ;
            rdfs:comment "Overall Score from the FOOPS (Ontology Pitfall Scanner for FAIR principles) tool." .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/termFound
+###  http://purl.org/ethics-assessment/ontology/termFound
 :termFound rdf:type owl:DatatypeProperty ;
            rdfs:domain earl:TestResult ;
            rdfs:range rdf:PlainLiteral ,
@@ -76,28 +76,28 @@ earl:subject rdf:type owl:ObjectProperty .
 #    Classes
 #################################################################
 
-###  http://purl.org/net/ethics-assessment/ontology/EthicsReport
+###  http://purl.org/ethics-assessment/ontology/EthicsReport
 :EthicsReport rdf:type owl:Class ;
               rdfs:subClassOf bibo:Report ;
               rdfs:comment "Report from an Ethical Assessment on a Dataset" .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/EthicsTest
+###  http://purl.org/ethics-assessment/ontology/EthicsTest
 :EthicsTest rdf:type owl:Class ;
             rdfs:subClassOf earl:TestCriterion .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/EthicsTestResult
+###  http://purl.org/ethics-assessment/ontology/EthicsTestResult
 :EthicsTestResult rdf:type owl:Class ;
                   rdfs:subClassOf earl:Assertion .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/Namespace
+###  http://purl.org/ethics-assessment/ontology/Namespace
 :Namespace rdf:type owl:Class ;
            rdfs:comment "A namespace in the dataset." .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/TruthValue
+###  http://purl.org/ethics-assessment/ontology/TruthValue
 :TruthValue rdf:type owl:Class ;
             rdfs:comment "Truth value either True or False." .
 
@@ -107,27 +107,27 @@ earl:subject rdf:type owl:ObjectProperty .
 #    Individuals
 #################################################################
 
-###  http://purl.org/net/ethics-assessment/ontology/DiscriminationTest
+###  http://purl.org/ethics-assessment/ontology/DiscriminationTest
 :DiscriminationTest rdf:type owl:NamedIndividual ,
                              :EthicsTest .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/False
+###  http://purl.org/ethics-assessment/ontology/False
 :False rdf:type owl:NamedIndividual ,
                 :TruthValue .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/SensitivityTest
+###  http://purl.org/ethics-assessment/ontology/SensitivityTest
 :SensitivityTest rdf:type owl:NamedIndividual ,
                           :EthicsTest .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/True
+###  http://purl.org/ethics-assessment/ontology/True
 :True rdf:type owl:NamedIndividual ,
                :TruthValue .
 
 
-###  http://purl.org/net/ethics-assessment/ontology/VulnerabilityTest
+###  http://purl.org/ethics-assessment/ontology/VulnerabilityTest
 :VulnerabilityTest rdf:type owl:NamedIndividual ,
                             :EthicsTest .
 
