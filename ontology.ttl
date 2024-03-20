@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @base <http://purl.org/ethics-assessment/ontology/> .
 
 <http://www.purl.org/ethics-assessment/ontology> rdf:type owl:Ontology ;
@@ -59,6 +60,10 @@
            rdfs:domain :Namespace ;
            rdfs:comment "Overall Score from the FOOPS (Ontology Pitfall Scanner for FAIR principles) tool." .
 
+###  http://purl.org/ethics-assessment/ontology/fileName
+:FAIRscore rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf foaf:name;
+           rdfs:comment "File name of document tested." .
 
 ###  http://purl.org/ethics-assessment/ontology/termFound
 :termFound rdf:type owl:DatatypeProperty ;
