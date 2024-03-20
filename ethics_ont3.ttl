@@ -1,0 +1,159 @@
+@prefix : <http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix earl: <http://www.w3.org/ns/earl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@base <http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/> .
+
+<http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment> rdf:type owl:Ontology ;
+                                                                        rdfs:label "Ontology describing the results of an ethical assessment on a LOD dataset."@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/hasEthicsTestResult
+:hasEthicsTestResult rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :hasTestResult ;
+                     rdfs:domain earl:TestSubject ;
+                     rdfs:range earl:EthicsTestResult ;
+                     rdfs:comment "Dataset or Ontology has Ethics Test Result." .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/hasNamespace
+:hasNamespace rdf:type owl:ObjectProperty ;
+              rdfs:domain void:Dataset ;
+              rdfs:range :Namespace ;
+              rdfs:comment "Namespace in dataset" .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/hasTestResult
+:hasTestResult rdf:type owl:ObjectProperty ;
+               owl:inverseOf earl:subject ;
+               rdfs:domain earl:TestSubject ;
+               rdfs:range earl:Assertion ;
+               rdfs:comment "Test Subject has Assertion." .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/isAvailable
+:isAvailable rdf:type owl:ObjectProperty ;
+             rdfs:domain :Namespace ;
+             rdfs:range :TruthValue ;
+             rdfs:comment "Whether or not the ontology is open and can be downloaded." .
+
+
+###  http://www.w3.org/ns/earl#subject
+earl:subject rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/FAIRscore
+:FAIRscore rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Namespace ;
+           rdfs:comment "Overall Score from the FOOPS (Ontology Pitfall Scanner for FAIR principles) tool." .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/termFound
+:termFound rdf:type owl:DatatypeProperty ;
+           rdfs:domain earl:TestResult ;
+           rdfs:range rdf:PlainLiteral ,
+                      rdf:langString ,
+                      xsd:string ;
+           rdfs:comment "Problematic term found in a test." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/ontology/bibo/Report
+bibo:Report rdf:type owl:Class .
+
+
+###  http://rdfs.org/ns/void#Dataset
+void:Dataset rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/EthicsReport
+:EthicsReport rdf:type owl:Class ;
+              rdfs:subClassOf bibo:Report ;
+              rdfs:comment "Report from an Ethical Assessment on a Dataset" .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/EthicsTest
+:EthicsTest rdf:type owl:Class ;
+            rdfs:subClassOf earl:TestCriterion .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/EthicsTestResult
+:EthicsTestResult rdf:type owl:Class ;
+                  rdfs:subClassOf earl:Assertion .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/Namespace
+:Namespace rdf:type owl:Class ;
+           rdfs:comment "A namespace in the dataset." .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/TruthValue
+:TruthValue rdf:type owl:Class ;
+            rdfs:comment "Truth value either True or False." .
+
+
+###  http://www.w3.org/ns/earl#Assertion
+earl:Assertion rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/earl#EthicsTestResult
+earl:EthicsTestResult rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/earl#TestCriterion
+earl:TestCriterion rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/earl#TestResult
+earl:TestResult rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/earl#TestSubject
+earl:TestSubject rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/DiscriminationTest
+:DiscriminationTest rdf:type owl:NamedIndividual ,
+                             :EthicsTest .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/False
+:False rdf:type owl:NamedIndividual ,
+                :TruthValue .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/SensitivityTest
+:SensitivityTest rdf:type owl:NamedIndividual ,
+                          :EthicsTest .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/True
+:True rdf:type owl:NamedIndividual ,
+               :TruthValue .
+
+
+###  http://www.semanticweb.org/isabe/ontologies/2024/2/ethics-assessment/VulnerabilityTest
+:VulnerabilityTest rdf:type owl:NamedIndividual ,
+                            :EthicsTest .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
