@@ -13,7 +13,7 @@
 <http://www.purl.org/ethics-assessment/ontology> rdf:type owl:Ontology ;
                                                                         dcterms:contributor "Isabelle Bryans" ;
                                                                         dcterms:created "2024-03-16T09:00:00"^^xsd:dateTime ;
-                                                                        rdfs:label "Ontology describing the results of an ethical assessment on a LOD dataset."@en .
+                                                                        rdfs:label "Ontology describing the results of an ethical assessment on a LOD dataset. Extends the EARL (Evaluation and Report Language) Schema at https://www.w3.org/TR/EARL10-Schema/"@en .
 
 #################################################################
 #    Object Properties
